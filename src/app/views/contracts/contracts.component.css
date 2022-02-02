@@ -1,0 +1,46 @@
+.active-contract {
+  background-color: #9ef8cb;
+  color: #197949;
+}
+
+.pending-contract {
+    background-color: #ffdab3;
+    color: #F29D42;
+}
+
+.primary-button {
+    background-color: #ff5a70;
+    color: #ffffff;
+}
+
+.action-buttons {
+    height: 40px;
+    margin: 10px;
+    margin-top: -9px;
+}
+
+.clear-filters {
+    color:#ff5a70; 
+    margin-top: 8px; 
+}
+
+.type-contract {
+    color: #8b928e; 
+    font-size: 12px
+}
+
+.start-date {
+    font-size: 11px; 
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.contract-value {
+    font-size: 12px; 
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.font-12 {
+    font-size: 12px;
+}

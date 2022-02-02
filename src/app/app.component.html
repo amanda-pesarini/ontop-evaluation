@@ -1,0 +1,65 @@
+<div style="height: 100vh">
+  <mat-toolbar>
+    <img src="../assets/images/logo.png" alt="ontop" />
+    <span class="example-spacer"></span>
+    <div
+      fxShow="true"
+      fxLayout="row"
+      fxHide.lt-md="true"
+      fxLayoutAlign="center"
+      fxFlex="100"
+    >
+      <button mat-button><mat-icon>person</mat-icon> Contracts</button>
+      <button mat-button><mat-icon>description</mat-icon> Documents</button>
+      <button mat-button><mat-icon>payments</mat-icon> Payout</button>
+      <button mat-button>
+        <mat-icon>calendar_month</mat-icon>
+        Time
+      </button>
+    </div>
+
+    <div fxLayout="row" fxHide.lt-md="true">
+      <ngx-avatar src="../assets/images/avatar.jpg"></ngx-avatar>
+      <button mat-icon-button>
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+    </div>
+
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon class="menu-icon">menu</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav fxLayout="column" position="end">
+      <div fxLayout="column">
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>person</mat-icon>
+          Contracts
+        </button>
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>description</mat-icon> Documents
+        </button>
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>payments</mat-icon> Payout
+        </button>
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>calendar_month</mat-icon> Time
+        </button>
+      </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content">
+        <router-outlet></router-outlet>
+        <div fxLayout="row" fxLayoutAlign="end">
+          <button mat-fab>
+            <mat-icon>chat_bubble</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

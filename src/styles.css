@@ -1,0 +1,33 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body {
+  margin: 0%;
+  background: #F9F9F9;
+}
+
+.content {
+  margin: 20px;
+}
+
+mat-sidenav-content {
+  overflow: unset !important;
+}
+
+mat-chip {
+  border-radius: 8px;
+  font-weight: bold !important;
+  font-size: 0.7rem !important;
+}
+
+.material-icons {
+  font-size: 18px !important;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.font-12 {
+  font-size: 12px;
+}

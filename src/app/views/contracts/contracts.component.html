@@ -1,0 +1,143 @@
+<div [formGroup]="form">
+  <div fxLayout="column" fxLayoutAlign="center center">
+    <h1>Contracts for James Bond</h1>
+  </div>
+
+  <div class="content" *ngIf="form">
+    <div fxLayout="row wrap" fxLayoutAlign="center center">
+      <mat-form-field
+        appearance="outline"
+        fxFlex.xs="100%"
+        fxFlex="53%"
+        class="font-12"
+      >
+        <mat-icon matPrefix>search</mat-icon>
+        <input
+          matInput
+          type="search"
+          placeholder="Search"
+          formControlName="search"
+        />
+      </mat-form-field>
+      <button mat-raised-button class="action-buttons">
+        <mat-icon>filter_list</mat-icon>Filter
+      </button>
+
+      <button mat-raised-button class="primary-button action-buttons">
+        <mat-icon>add</mat-icon>New Hire
+      </button>
+    </div>
+
+    <div
+      fxLayout="row"
+      fxLayoutAlign="center start"
+      fxLayoutGap="10px"
+      fxHide.lt-md="true"
+    >
+      <mat-form-field appearance="outline" class="font-12" fxFlex="10%">
+        <mat-label>Create on:</mat-label>
+        <mat-date-range-input [rangePicker]="picker">
+          <input
+            formControlName="dateRange1"
+            matStartDate
+            placeholder="Start date"
+          />
+          <input
+            formControlName="dateRange2"
+            matEndDate
+            placeholder="End date"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+
+      <app-select
+        fxFlex="11%"
+        label="Contract Type"
+        name="contractType"
+        [options]="types"
+      ></app-select>
+
+      <mat-form-field
+        appearance="outline"
+        fxFlex.xs="100%"
+        fxFlex="20%"
+        class="font-12"
+      >
+        <input
+          matInput
+          type="search"
+          formControlName="contractorName"
+          placeholder="Contractor name"
+        />
+      </mat-form-field>
+
+      <app-select label="Status" name="status" [options]="status"></app-select>
+
+      <button mat-button class="font-12 clear-filters">
+        <mat-icon>delete</mat-icon>Clear Filters
+      </button>
+    </div>
+  </div>
+
+  <div
+    fxLayout="row wrap"
+    fxLayoutGap="70px grid"
+    fxLayoutAlign="center center"
+  >
+    <div fxFlex.xs="100%" fxFlex.sm="50%" *ngFor="let contract of contracts">
+      <mat-card
+        fxFlex
+        fxLayoutGap="10px"
+        fxLayout="column"
+        style="width: 250px"
+      >
+        <div fxFlex fxLayout="row" fxLayoutAlign="start">
+          <mat-chip
+            fxFlex="100%"
+            [ngClass]="{
+              'active-contract': contract.status === 'Active',
+              'pending-contract': contract.status === 'Signature pending'
+            }"
+            fxLayoutAlign="center center"
+          >
+            {{ contract.status }}
+          </mat-chip>
+        </div>
+
+        <div fxFlex fxLayout="column" fxLayoutAlign="center center">
+          <ngx-avatar src="{{ contract.urlPhoto }}"></ngx-avatar>
+          <span
+            ><b> {{ contract.name }}</b></span
+          >
+
+          <div fxLayout="row">
+            <span class="type-contract"> {{ contract.type }}</span>
+          </div>
+          <span class="start-date"> {{ contract.startDate }}</span>
+          <span class="contract-value"> {{ contract.value }} USD</span>
+
+          <div fxLayout="row" fxLayoutGap="10px" style="padding: 5px">
+            <button
+              mat-raised-button
+              *ngIf="contract.status != 'Active'"
+              class="primary-button"
+            >
+              <mat-icon>border_color</mat-icon>Sign
+            </button>
+            <button mat-raised-button>
+              <mat-icon>visibility</mat-icon>View
+            </button>
+          </div>
+        </div>
+        <mat-card-actions fxLayoutAlign="center center">
+          <button mat-button><mat-icon>edit</mat-icon>Edit</button>
+          <button mat-button>
+            <mat-icon style="color: #ff5a70">delete</mat-icon>Delete
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

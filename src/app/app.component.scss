@@ -1,0 +1,54 @@
+mat-toolbar {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08) !important;
+  font-family: Aileron;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  color: #898989;
+  z-index: 999;
+  padding: 40px;
+  position: relative;
+}
+
+mat-icon {
+  color: #bebebe;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.menu-icon {
+  color: #FF5A70;
+  font-size: 25px;
+}
+
+.mat-button {
+  margin: 15px;
+}
+
+.container {
+  flex-direction: column;
+}
+
+.mat-raised-button {
+  border-radius: 10px;
+}
+
+.mat-fab {
+  z-index: 999;
+  width: 70px;
+  height: 70px;
+  float: right;
+  background-color: #FF5A70;
+  color: #ffffff !important;
+  font-size: 18px; 
+  margin-right: 20px;
+  margin-top: 30px;
+
+   .mat-icon {
+     color: #ffffff;
+   }
+}
+

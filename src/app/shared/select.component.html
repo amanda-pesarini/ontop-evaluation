@@ -1,0 +1,8 @@
+<mat-form-field appearance="outline" class="font-12" fxFlex="fxFlex">
+    <mat-label>{{ label }}</mat-label>
+    <mat-select name="name">
+      <mat-option *ngFor="let option of options" [value]="option.value">
+        {{option.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
